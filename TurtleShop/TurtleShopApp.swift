@@ -5,6 +5,7 @@
 //  Created by Chris Turner on 25/06/2024.
 //
 
+import SwiftData
 import SwiftUI
 
 @main
@@ -13,5 +14,6 @@ struct TurtleShopApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Item.self)
     }
 }

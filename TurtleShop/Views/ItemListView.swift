@@ -5,14 +5,19 @@
 //  Created by Chris Turner on 25/06/2024.
 //
 
+import SwiftData
 import SwiftUI
 
 struct ItemListView: View {
+    @Environment(\.modelContext) var modelContext
+    
+    var item: Item
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(item.name)
     }
 }
 
 #Preview {
-    ItemListView()
+    ItemListView(item: Item(name: "Test"))
 }
