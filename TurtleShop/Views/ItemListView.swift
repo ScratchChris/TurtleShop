@@ -19,5 +19,5 @@ struct ItemListView: View {
 }
 
 #Preview {
-    ItemListView(item: Item(name: "Test"))
+    ItemListView(item: Item(name: "Test", location: Location(name: "Fridge"), meals:[Meal(name: "Test")]))
 }

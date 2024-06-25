@@ -5,13 +5,35 @@
 //  Created by Chris Turner on 25/06/2024.
 //
 
+import SwiftData
 import SwiftUI
 
 struct ShoppingListView: View {
+    
+    @Environment(\.modelContext) var modelContext
+    @Query var items : [Item]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack() {
+            List {
+                ForEach (items) { item in
+                    ItemListView(item: item)
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitle("Shopping List")
+            .toolbar {
+                Button("Add Item", systemImage: "plus", action: addItem)
+            }
+        }
     }
+    
+    func addItem() {
+        
+    }
+    
 }
+
 
 #Preview {
     ShoppingListView()
