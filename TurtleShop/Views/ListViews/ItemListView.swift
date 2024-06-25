@@ -5,12 +5,9 @@
 //  Created by Chris Turner on 25/06/2024.
 //
 
-import SwiftData
 import SwiftUI
 
 struct ItemListView: View {
-    @Environment(\.modelContext) var modelContext
-    
     var item: Item
     
     var body: some View {

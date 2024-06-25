@@ -16,6 +16,11 @@
 		835AFD432C2B4577006488F3 /* MealsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835AFD422C2B4577006488F3 /* MealsView.swift */; };
 		835AFD452C2B4583006488F3 /* LocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835AFD442C2B4583006488F3 /* LocationsView.swift */; };
 		835AFD472C2B4647006488F3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835AFD462C2B4647006488F3 /* SettingsView.swift */; };
+		835AFD4A2C2B58EF006488F3 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835AFD492C2B58EF006488F3 /* AddItemView.swift */; };
+		835AFD4D2C2B5A8E006488F3 /* MealListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835AFD4C2C2B5A8E006488F3 /* MealListView.swift */; };
+		835AFD4F2C2B5AD1006488F3 /* AddMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835AFD4E2C2B5AD1006488F3 /* AddMealView.swift */; };
+		835AFD512C2B5B62006488F3 /* AddLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835AFD502C2B5B62006488F3 /* AddLocationView.swift */; };
+		835AFD532C2B5B7F006488F3 /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835AFD522C2B5B7F006488F3 /* LocationListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +34,11 @@
 		835AFD422C2B4577006488F3 /* MealsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsView.swift; sourceTree = "<group>"; };
 		835AFD442C2B4583006488F3 /* LocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsView.swift; sourceTree = "<group>"; };
 		835AFD462C2B4647006488F3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		835AFD492C2B58EF006488F3 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
+		835AFD4C2C2B5A8E006488F3 /* MealListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListView.swift; sourceTree = "<group>"; };
+		835AFD4E2C2B5AD1006488F3 /* AddMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealView.swift; sourceTree = "<group>"; };
+		835AFD502C2B5B62006488F3 /* AddLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationView.swift; sourceTree = "<group>"; };
+		835AFD522C2B5B7F006488F3 /* LocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -97,14 +107,35 @@
 		835AFD392C2B309F006488F3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				835AFD4B2C2B5A80006488F3 /* ListViews */,
+				835AFD482C2B58DF006488F3 /* AddViews */,
 				835AFD282C2B2E3F006488F3 /* ContentView.swift */,
 				835AFD462C2B4647006488F3 /* SettingsView.swift */,
-				835AFD3A2C2B30E4006488F3 /* ItemListView.swift */,
 				835AFD402C2B456C006488F3 /* ShoppingListView.swift */,
 				835AFD422C2B4577006488F3 /* MealsView.swift */,
 				835AFD442C2B4583006488F3 /* LocationsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		835AFD482C2B58DF006488F3 /* AddViews */ = {
+			isa = PBXGroup;
+			children = (
+				835AFD492C2B58EF006488F3 /* AddItemView.swift */,
+				835AFD4E2C2B5AD1006488F3 /* AddMealView.swift */,
+				835AFD502C2B5B62006488F3 /* AddLocationView.swift */,
+			);
+			path = AddViews;
+			sourceTree = "<group>";
+		};
+		835AFD4B2C2B5A80006488F3 /* ListViews */ = {
+			isa = PBXGroup;
+			children = (
+				835AFD3A2C2B30E4006488F3 /* ItemListView.swift */,
+				835AFD4C2C2B5A8E006488F3 /* MealListView.swift */,
+				835AFD522C2B5B7F006488F3 /* LocationListView.swift */,
+			);
+			path = ListViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,13 +208,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				835AFD4F2C2B5AD1006488F3 /* AddMealView.swift in Sources */,
+				835AFD532C2B5B7F006488F3 /* LocationListView.swift in Sources */,
+				835AFD512C2B5B62006488F3 /* AddLocationView.swift in Sources */,
 				835AFD292C2B2E3F006488F3 /* ContentView.swift in Sources */,
 				835AFD412C2B456C006488F3 /* ShoppingListView.swift in Sources */,
 				835AFD272C2B2E3F006488F3 /* TurtleShopApp.swift in Sources */,
 				835AFD472C2B4647006488F3 /* SettingsView.swift in Sources */,
+				835AFD4A2C2B58EF006488F3 /* AddItemView.swift in Sources */,
 				835AFD452C2B4583006488F3 /* LocationsView.swift in Sources */,
 				835AFD3B2C2B30E4006488F3 /* ItemListView.swift in Sources */,
 				835AFD432C2B4577006488F3 /* MealsView.swift in Sources */,
+				835AFD4D2C2B5A8E006488F3 /* MealListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

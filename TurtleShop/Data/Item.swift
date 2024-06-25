@@ -10,6 +10,7 @@ import SwiftData
 
 @Model
 class Item {
+    var id = UUID()
     var name: String
     @Relationship(deleteRule: .noAction) let location: Location
     @Relationship(deleteRule: .noAction) let meals: [Meal]
