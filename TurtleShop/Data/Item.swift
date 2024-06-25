@@ -11,8 +11,12 @@ import SwiftData
 @Model
 class Item {
     var name: String
+    @Relationship(deleteRule: .noAction) let location: Location
+    @Relationship(deleteRule: .noAction) let meals: [Meal]
     
-    init(name: String = "") {
+    init (name: String, location: Location, meals: [Meal]) {
         self.name = name
+        self.location = location
+        self.meals = meals
     }
 }

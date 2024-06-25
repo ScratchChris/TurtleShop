@@ -28,6 +28,8 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Item.swift,
+				Location.swift,
+				Meal.swift,
 			);
 			target = 835AFD222C2B2E3F006488F3 /* TurtleShop */;
 		};
