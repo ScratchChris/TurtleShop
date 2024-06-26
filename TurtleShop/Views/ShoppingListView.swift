@@ -20,47 +20,54 @@ struct ShoppingListView: View {
     
     var body: some View {
         NavigationStack() {
-            if items.count == 0 {
-                ContentUnavailableView {
-                    Label("No items", systemImage: "text.badge.plus")
-                } description: {
-                    Text("You don't have any items yet.")
-                } actions: {
-                    Button("Add First Item") {
-                        if locations.count == 0 {
-                            isShowingNoLocationsAlert.toggle()
-                        } else {
-                            isShowingAddItemView.toggle()
-                        }
-                    }
-                    .buttonStyle(.borderedProminent)
-                }
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarTitle("Shopping List")
-                .toolbar {
-                    Button("Add Item", systemImage: "plus") {
-                        if locations.count == 0 {
-                            isShowingNoLocationsAlert.toggle()
-                        } else {
-                            isShowingAddItemView.toggle()
-                        }
-                    }
-                }
-                .sheet(isPresented: $isShowingAddItemView) {
-                    AddItemView()
-                }
-                .alert("You have no locations and need one before adding an item",isPresented: $isShowingNoLocationsAlert) {
-                    Button("Add first location") {
-                        isShowingAddLocationView.toggle()
-                    }
-                }
-                .sheet(isPresented: $isShowingAddLocationView) {
-                    AddLocationView()
-                }
-            } else {
+//            if items.count == 0 {
+//                ContentUnavailableView {
+//                    Label("No items", systemImage: "text.badge.plus")
+//                } description: {
+//                    Text("You don't have any items yet.")
+//                } actions: {
+//                    Button("Add First Item") {
+//                        if locations.count == 0 {
+//                            isShowingNoLocationsAlert.toggle()
+//                        } else {
+//                            isShowingAddItemView.toggle()
+//                        }
+//                    }
+//                    .buttonStyle(.borderedProminent)
+//                }
+//                .navigationBarTitleDisplayMode(.inline)
+//                .navigationBarTitle("Shopping List")
+//                .toolbar {
+//                    Button("Add Item", systemImage: "plus") {
+//                        if locations.count == 0 {
+//                            isShowingNoLocationsAlert.toggle()
+//                        } else {
+//                            isShowingAddItemView.toggle()
+//                        }
+//                    }
+//                }
+//                .sheet(isPresented: $isShowingAddItemView) {
+//                    AddItemView()
+//                }
+//                .alert("You have no locations and need one before adding an item",isPresented: $isShowingNoLocationsAlert) {
+//                    Button("Add first location") {
+//                        isShowingAddLocationView.toggle()
+//                    }
+//                    Button("Cancel", role: .cancel) { }
+//                }
+//                .sheet(isPresented: $isShowingAddLocationView) {
+//                    AddLocationView()
+//                }
+//            } else {
                 List {
                     ForEach (items) { item in
                         ItemListView(item: item)
+                            .onTapGesture {
+                                item.status = .needed
+                            }
+                            .onLongPressGesture {
+                                item.status = .unneeded
+                            }
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)
@@ -73,7 +80,7 @@ struct ShoppingListView: View {
                 .sheet(isPresented: $isShowingAddItemView) {
                     AddItemView()
                 }
-            }
+//            }
         }
     }
     

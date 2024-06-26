@@ -16,11 +16,36 @@ struct LocationsView: View {
     
     var body: some View {
         NavigationStack {
-            List {
-                ForEach (locations) { location in
-                    LocationListView(location: location)
+//            if locations.isEmpty {
+//                ContentUnavailableView {
+//                    Label("No Locations", systemImage: "door.french.closed")
+//                } description: {
+//                    Text("You don't have any locations yet.")
+//                } actions: {
+//                    Button("Add First Location") {
+//                        isShowingAddLocationView.toggle()
+//                    }
+//                    .buttonStyle(.borderedProminent)
+//                }
+//                .navigationBarTitleDisplayMode(.inline)
+//                .navigationBarTitle("Shopping List")
+//                .toolbar {
+//                    Button("Add Item", systemImage: "plus") {
+//                        isShowingAddLocationView.toggle()
+//                    }
+//                }
+//                .sheet(isPresented: $isShowingAddLocationView) {
+//                    AddLocationView()
+//                }
+//                .onAppear() {
+//                    print(locations.isEmpty)
+//                }
+//            } else {
+                List {
+                    ForEach (locations) { location in
+                        LocationListView(location: location)
+                    }
                 }
-            }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarTitle("Locations")
                 .toolbar {
@@ -31,6 +56,8 @@ struct LocationsView: View {
                 .sheet(isPresented: $isShowingAddLocationView) {
                     AddLocationView()
                 }
+//            }
+                
         }
     }
 }

@@ -23,7 +23,7 @@ struct ContentView: View {
                 }
             LocationsView()
                 .tabItem {
-                    Label("Locations", systemImage: "magnifyingglass")
+                    Label("Locations", systemImage: "door.french.closed")
                 }
             SettingsView()
                 .tabItem {
