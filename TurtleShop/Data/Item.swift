@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import SwiftUI
 
 enum NewOrStaple: Codable {
     case new, staple, blank
@@ -18,10 +19,22 @@ enum Status: Codable {
 
 @Model
 class Item {
-    var id = UUID()
+    @Attribute(.unique) var id = UUID()
     var name: String
     var newOrStaple: NewOrStaple
     var status: Status
+    var listBackgroundColor: Color {
+        switch status {
+        case .unselected:
+            return Color.white
+        case .needed:
+            return Color.green.opacity(0.2)
+        case .unneeded:
+            return Color.red.opacity(0.2)
+        }
+    }
+    
+    
     @Relationship(deleteRule: .noAction) let location: Location
     @Relationship(deleteRule: .noAction) let meals: [Meal]?
     

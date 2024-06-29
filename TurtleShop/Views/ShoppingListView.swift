@@ -62,8 +62,11 @@ struct ShoppingListView: View {
                 List {
                     ForEach (items) { item in
                         ItemListView(item: item)
+                            .contentShape(Rectangle())
+                            .listRowBackground(item.listBackgroundColor)
                             .onTapGesture {
                                 item.status = .needed
+                                print(item.status)
                             }
                             .onLongPressGesture {
                                 item.status = .unneeded
