@@ -17,7 +17,10 @@ struct MealListView: View {
             List {
                 Section("Items") {
                     ForEach(meals) { meal in
-                        Text(meal.name ?? "No name")
+                        NavigationLink(destination: MealIngredientsList(meal: meal)) {
+                            Text(meal.mealName)
+                                .badge(meal.mealIngredients.count)
+                        }
                     }
                 }
             }
