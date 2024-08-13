@@ -19,7 +19,7 @@ extension Item {
             return NewOrStaple(rawValue: Int(self.newOrStaple)) ?? .new
         }
         set {
-            self.status = Int16(newValue.rawValue)
+            self.newOrStaple = Int16(newValue.rawValue)
         }
     }
 }

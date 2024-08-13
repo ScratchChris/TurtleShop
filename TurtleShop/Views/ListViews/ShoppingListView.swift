@@ -16,8 +16,18 @@ struct ShoppingListView: View {
         NavigationStack {
             List {
                 Section("Items") {
-                    ForEach(items) { item in
-                        Text(item.name ?? "No name")
+                    ForEach(items, id: \.itemID) { item in
+                        ItemRow(item: item)
+                            .contentShape(Rectangle())
+                            .listRowBackground(item.listBackgroundColor)
+                            .onTapGesture {
+                                item.itemStatus = .needed
+                                dataController.save()
+                            }
+                            .onLongPressGesture {
+                                item.itemStatus = .unneeded
+                                dataController.save()
+                            }
                     }
                 }
             }

@@ -24,6 +24,11 @@ class DataController: ObservableObject {
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(filePath: "dev/null")
         }
+
+        container.viewContext.automaticallyMergesChangesFromParent = true
+        container.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
+        container.persistentStoreDescriptions.first?.setOption(true as NSNumber, forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
+        NotificationCenter.default.addObserver(forName: .NSPersistentStoreRemoteChange, object: container.persistentStoreCoordinator, queue: .main, using: remoteStoreChanged)
         
         container.loadPersistentStores { storeDescription, error in
             if let error {
@@ -33,6 +38,8 @@ class DataController: ObservableObject {
     }
     
     func createSampleData() {
+        //deletes existing data and creates new samples
+        
         let viewContext = container.viewContext
         
         for i in 1...5 {
@@ -58,11 +65,14 @@ class DataController: ObservableObject {
             for k in 1...5 {
                 let item = Item(context: viewContext)
                 item.id = UUID()
-                item.name = "Item \(k)"
+                item.name = "Item \(i)-\(k+5)"
                 item.itemNewOrStaple = .staple
                 item.onShoppingList = true
                 item.itemStatus = .unselected
+                location.addToItems(item)
+                meal.addToIngredients(item)
             }
+        
         }
         
         try? viewContext.save()
@@ -104,6 +114,10 @@ class DataController: ObservableObject {
         delete(request4)
         
         save()
+    }
+    
+    func remoteStoreChanged(_ notification: Notification) {
+        objectWillChange.send()
     }
     
 }

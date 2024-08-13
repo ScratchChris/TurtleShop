@@ -17,7 +17,7 @@ struct MealListView: View {
             List {
                 Section("Items") {
                     ForEach(meals) { meal in
-                        Text(meal.name ?? "No name")
+                        Text(meal.mealName)
                     }
                 }
             }

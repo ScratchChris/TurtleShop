@@ -17,7 +17,8 @@ struct LocationListView: View {
             List {
                 Section("Items") {
                     ForEach(locations) { location in
-                        Text(location.name ?? "No name")
+                        Text(location.locationName)
+                            .badge(location.locationItems.count)
                     }
                 }
             }
