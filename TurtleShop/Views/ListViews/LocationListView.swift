@@ -17,8 +17,11 @@ struct LocationListView: View {
             List {
                 Section("Items") {
                     ForEach(locations) { location in
-                        Text(location.locationName)
-                            .badge(location.locationItems.count)
+                        
+                        NavigationLink(destination: LocationItemsView(location: location)) {
+                            Text(location.locationName)
+                                .badge(location.locationItems.count)
+                        }
                     }
                 }
             }

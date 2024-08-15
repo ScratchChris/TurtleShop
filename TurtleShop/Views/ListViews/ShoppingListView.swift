@@ -14,23 +14,24 @@ struct ShoppingListView: View {
     
     var body: some View {
         NavigationStack {
-            List {
-                Section("Items") {
-                    ForEach(items, id: \.itemID) { item in
-                        ItemRow(item: item)
-                            .contentShape(Rectangle())
-                            .listRowBackground(item.listBackgroundColor)
-                            .onTapGesture {
-                                item.itemStatus = .needed
-                                dataController.save()
-                            }
-                            .onLongPressGesture {
-                                item.itemStatus = .unneeded
-                                dataController.save()
-                            }
+                List {
+                    Section("Items") {
+                        ForEach(items, id: \.itemID) { item in
+                            ItemRow(item: item)
+                                .contentShape(Rectangle())
+                                .listRowBackground(item.listBackgroundColor)
+                                .onTapGesture {
+                                    item.itemStatus = .needed
+                                    dataController.save()
+                                }
+                                .onLongPressGesture {
+                                    item.itemStatus = .unneeded
+                                    dataController.save()
+                                }
+                        }
                     }
                 }
-            }
+
             .navigationTitle("TurtleShop")
             .toolbar {
                 Button {
