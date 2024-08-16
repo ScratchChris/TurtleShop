@@ -25,10 +25,11 @@ struct MealIngredientsList: View {
     var body: some View {
         List {
             ForEach (items) { item in
-                Text(item.itemName)
+                ItemRow(item: item)
             }
         }
         .navigationTitle(meal.mealName)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

@@ -10,6 +10,7 @@ import SwiftUI
 struct ItemRow: View {
     @EnvironmentObject var dataController: DataController
     @ObservedObject var item: Item
+    @State private var isShowingItemView = false
     
     var body: some View {
         HStack {
@@ -47,6 +48,9 @@ struct ItemRow: View {
             }
 
         }
+        .sheet(isPresented: $isShowingItemView) {
+            ItemView(item:item)
+        }
         .swipeActions(edge: .leading) {
             Button {
                 if item.itemNewOrStaple == .new {
@@ -69,7 +73,7 @@ struct ItemRow: View {
                 dataController.delete(item)
             })
             Button("", systemImage: "pencil", action: {
-                //Edit
+                isShowingItemView.toggle()
             })
             .tint(.green)
         }

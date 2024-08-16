@@ -6,11 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum NewOrStaple: Int {
     case new = 1
     case staple = 2
     case neither = 3
+    
+    var isStaple: Bool { self == .staple }
 }
 
 extension Item {
@@ -21,5 +24,13 @@ extension Item {
         set {
             self.newOrStaple = Int16(newValue.rawValue)
         }
+    }
+    
+
+}
+
+extension Binding {
+    func map<NewValue>(_ transform: @escaping (Value) -> NewValue) -> Binding<NewValue> {
+        Binding<NewValue>(get: { transform(wrappedValue) }, set: { _ in })
     }
 }

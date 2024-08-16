@@ -10,6 +10,10 @@ import CoreData
 class DataController: ObservableObject {
     let container: NSPersistentCloudKitContainer
     
+    @Published var selectedItem: Item?
+    @Published var selectedMeal: Meal?
+    @Published var selectedLocation: Location?
+    
 //    @Published var selectedFilter: Filter? = Filter.all
     
     static var preview: DataController = {

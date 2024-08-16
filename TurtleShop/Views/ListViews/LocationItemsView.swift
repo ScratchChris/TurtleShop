@@ -16,7 +16,7 @@ struct LocationItemsView: View {
         var allItems: [Item]
         
         let request = Item.fetchRequest()
-        request.predicate = NSPredicate(format: "ANY location = %@", location)
+        request.predicate = NSPredicate(format: "location = %@", location)
         allItems = (try? dataController.container.viewContext.fetch(request)) ?? []
         
         return allItems.sorted()
@@ -25,10 +25,11 @@ struct LocationItemsView: View {
     var body: some View {
         List {
             ForEach (items) { item in
-                Text(item.itemName)
+                ItemRow(item: item)
             }
         }
         .navigationTitle(location.locationName)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

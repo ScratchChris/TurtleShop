@@ -14,9 +14,10 @@ struct MealListView: View {
     
     var body: some View {
         NavigationStack {
-            List {
+            List(selection: $dataController.selectedMeal) {
                 Section("Items") {
                     ForEach(meals) { meal in
+                        
                         NavigationLink(destination: MealIngredientsList(meal: meal)) {
                             Text(meal.mealName)
                                 .badge(meal.mealIngredients.count)
