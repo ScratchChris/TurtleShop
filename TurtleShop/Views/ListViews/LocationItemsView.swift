@@ -32,6 +32,9 @@ struct LocationItemsView: View {
         }
         .navigationTitle(location.locationName)
         .navigationBarTitleDisplayMode(.inline)
+        .onReceive(location.objectWillChange) { _ in
+            dataController.queueSave()
+        }
     }
 }
 

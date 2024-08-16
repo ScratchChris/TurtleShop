@@ -51,6 +51,9 @@ struct MealIngredientsList: View {
         }
         .navigationTitle(meal.mealName)
         .navigationBarTitleDisplayMode(.inline)
+        .onReceive(meal.objectWillChange) { _ in
+            dataController.queueSave()
+        }
     }
 }
 

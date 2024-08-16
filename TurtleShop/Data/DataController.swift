@@ -14,7 +14,9 @@ class DataController: ObservableObject {
     @Published var selectedMeal: Meal?
     @Published var selectedLocation: Location?
     
-//    @Published var selectedFilter: Filter? = Filter.all
+    private var saveTask: Task<Void, Error>?
+    
+    //    @Published var selectedFilter: Filter? = Filter.all
     
     static var preview: DataController = {
         let dataController = DataController(inMemory: true)
@@ -28,7 +30,7 @@ class DataController: ObservableObject {
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(filePath: "dev/null")
         }
-
+        
         container.viewContext.automaticallyMergesChangesFromParent = true
         container.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
         container.persistentStoreDescriptions.first?.setOption(true as NSNumber, forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
@@ -76,7 +78,7 @@ class DataController: ObservableObject {
                 location.addToItems(item)
                 meal.addToIngredients(item)
             }
-        
+            
         }
         
         try? viewContext.save()
@@ -85,6 +87,15 @@ class DataController: ObservableObject {
     func save() {
         if container.viewContext.hasChanges {
             try? container.viewContext.save()
+        }
+    }
+    
+    func queueSave() {
+        saveTask?.cancel()
+        
+        saveTask = Task { @MainActor in
+            try await Task.sleep(for: .seconds(3))
+            save()
         }
     }
     

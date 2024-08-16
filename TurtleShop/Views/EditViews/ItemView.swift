@@ -83,6 +83,9 @@ struct ItemView: View {
                 }
             }
         }
+        .onReceive(item.objectWillChange) { _ in
+            dataController.queueSave()
+        }
     }
 }
 
