@@ -26,6 +26,8 @@ struct LocationItemsView: View {
         List {
             ForEach (items) { item in
                 ItemRow(item: item)
+                    .contentShape(Rectangle())
+                    .listRowBackground(item.listBackgroundColor)
             }
         }
         .navigationTitle(location.locationName)

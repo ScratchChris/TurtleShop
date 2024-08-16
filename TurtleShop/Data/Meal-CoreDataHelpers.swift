@@ -13,7 +13,8 @@ extension Meal {
     }
     
     var mealName: String {
-        name ?? ""
+        get { name ?? "" }
+        set { name = newValue }
     }
     
     var mealIngredients: [Item] {

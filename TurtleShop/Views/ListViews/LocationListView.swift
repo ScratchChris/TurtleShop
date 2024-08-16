@@ -18,16 +18,26 @@ struct LocationListView: View {
                 Section("Items") {
                     ForEach(locations) { location in
                         
-                        NavigationLink(destination: LocationItemsView(location: location)) {
-                            Text(location.locationName)
-                                .badge(location.locationItems.count)
-                        }
+                        Text(location.locationName)
+                            .badge(location.locationItems.count)
+                            .swipeActions(edge: .trailing) {
+                                Button("", systemImage: "trash", role: .destructive, action: {
+                                    dataController.delete(location)
+                                })
+                                NavigationLink(destination: LocationItemsView(location: location)) {
+                                    Button("", systemImage: "pencil", action: {
+                                        
+                                    })
+                                    .tint(.green)
+                                }
+                                
+                            }
                     }
                 }
+                .navigationTitle("Locations")
             }
-            .navigationTitle("Locations")
+            
         }
-        
     }
 }
 

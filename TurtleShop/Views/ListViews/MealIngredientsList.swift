@@ -10,8 +10,8 @@ import SwiftUI
 struct MealIngredientsList: View {
     @EnvironmentObject var dataController: DataController
     
-    var meal: Meal
-
+    @ObservedObject var meal: Meal
+    
     var items: [Item] {
         var allItems: [Item]
         
@@ -23,9 +23,30 @@ struct MealIngredientsList: View {
     }
     
     var body: some View {
-        List {
-            ForEach (items) { item in
-                ItemRow(item: item)
+        Form {
+            Section("Meal Name") {
+                VStack(alignment: .leading) {
+                    TextField("Item Name", text: $meal.mealName, prompt: Text("Enter the meal name here"))
+                        .font(.title)
+                }
+            }
+            Section("Meal Categories") {
+                Text("Meal Categories to go here")
+                    .foregroundStyle(.secondary)
+            }
+            Section("Ingredients") {
+                if meal.mealIngredients.isEmpty {
+                    Text("No ingredients in the meal yet")
+                        .foregroundStyle(.secondary)
+                } else {
+                    List {
+                        ForEach (items) { item in
+                            ItemRow(item: item)
+                                .contentShape(Rectangle())
+                                .listRowBackground(item.listBackgroundColor)
+                        }
+                    }
+                }
             }
         }
         .navigationTitle(meal.mealName)

@@ -17,11 +17,20 @@ struct MealListView: View {
             List(selection: $dataController.selectedMeal) {
                 Section("Items") {
                     ForEach(meals) { meal in
-                        
-                        NavigationLink(destination: MealIngredientsList(meal: meal)) {
                             Text(meal.mealName)
                                 .badge(meal.mealIngredients.count)
-                        }
+                                .swipeActions(edge: .trailing) {
+                                    Button("", systemImage: "trash", role: .destructive, action: {
+                                        dataController.delete(meal)
+                                    })
+                                    NavigationLink(destination: MealIngredientsList(meal: meal)) {
+                                        Button("", systemImage: "pencil", action: {
+                                            
+                                        })
+                                        .tint(.green)
+                                    }
+                                }
+                        
                     }
                 }
             }
