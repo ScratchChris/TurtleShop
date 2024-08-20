@@ -86,7 +86,12 @@ struct ItemView: View {
         .onReceive(item.objectWillChange) { _ in
             dataController.queueSave()
         }
+        .onAppear() {
+            dataController.selectedMeal = nil
+            dataController.selectedLocation = nil
+        }
     }
+    
 }
 
 #Preview {

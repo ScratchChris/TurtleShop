@@ -12,24 +12,28 @@ struct MealListView: View {
     
     @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var meals: FetchedResults<Meal>
     
+    @State private var ingredientsViewShowing = false
+    
     var body: some View {
         NavigationStack {
-            List(selection: $dataController.selectedMeal) {
+            List {
                 Section("Items") {
                     ForEach(meals) { meal in
-                            Text(meal.mealName)
-                                .badge(meal.mealIngredients.count)
-                                .swipeActions(edge: .trailing) {
-                                    Button("", systemImage: "trash", role: .destructive, action: {
-                                        dataController.delete(meal)
+                        Text(meal.mealName)
+                            .badge(meal.mealIngredients.count)
+                            .swipeActions(edge: .trailing) {
+                                Button("", systemImage: "trash", role: .destructive, action: {
+                                    dataController.delete(meal)
+                                })
+                                NavigationLink(destination: MealIngredientsList(meal: meal)) {
+                                    
+                                    Button("", systemImage: "pencil", action: {
+                                      
                                     })
-                                    NavigationLink(destination: MealIngredientsList(meal: meal)) {
-                                        Button("", systemImage: "pencil", action: {
-                                            
-                                        })
-                                        .tint(.green)
-                                    }
+                                    .tint(.green)
                                 }
+                                
+                            }
                         
                     }
                 }

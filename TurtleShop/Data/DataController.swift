@@ -14,6 +14,8 @@ class DataController: ObservableObject {
     @Published var selectedMeal: Meal?
     @Published var selectedLocation: Location?
     
+    @Published var filterText = ""
+    
     private var saveTask: Task<Void, Error>?
     
     //    @Published var selectedFilter: Filter? = Filter.all
@@ -133,6 +135,56 @@ class DataController: ObservableObject {
     
     func remoteStoreChanged(_ notification: Notification) {
         objectWillChange.send()
+    }
+    
+    func itemsInMeal() -> [Item] {
+        var predicates = [NSPredicate]()
+        
+        if let selectedMeal = selectedMeal {
+            let mealPredicate = NSPredicate(format: "meals CONTAINS %@", selectedMeal)
+            predicates.append(mealPredicate)
+        }
+        
+        let request = Item.fetchRequest()
+        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+        let allItems = (try? container.viewContext.fetch(request)) ?? []
+        print(allItems.count)
+        return allItems.sorted()
+        
+    }
+    
+    func itemsForSelection() -> [Item] {
+        var predicates = [NSPredicate]()
+        
+        if let selectedLocation = selectedLocation {
+            let locationPredicate = NSPredicate(format: "location == %@", selectedLocation)
+            predicates.append(locationPredicate)
+        }
+        
+        if let selectedMeal = selectedMeal {
+            let mealPredicate = NSPredicate(format: "meals CONTAINS %@", selectedMeal)
+            predicates.append(mealPredicate)
+        }
+        
+        let trimmedFilterText = filterText.trimmingCharacters(in: .whitespaces)
+        
+        if trimmedFilterText.isEmpty == false {
+            let itemPredicate = NSPredicate(format: "name CONTAINS[c] %@", trimmedFilterText)
+            predicates.append(itemPredicate)
+        }
+        
+        let request = Item.fetchRequest()
+        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+        let allItems = (try? container.viewContext.fetch(request)) ?? []
+        print(allItems.count)
+        return allItems.sorted()
+        
+        
+    }
+    
+    func resetVariables() {
+        selectedMeal = nil
+        selectedLocation = nil
     }
     
 }

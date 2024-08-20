@@ -10,29 +10,42 @@ import SwiftUI
 struct ShoppingListView: View {
     @EnvironmentObject var dataController: DataController
     
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var items: FetchedResults<Item>
+    @SectionedFetchRequest<String?, Item>(
+        sectionIdentifier: \.location!.name,
+        sortDescriptors: [
+            SortDescriptor(\.location!.name, order: .forward),
+            SortDescriptor(\.status, order: .forward),
+            SortDescriptor(\.name, order: .forward)
+        ]
+//        animation: (.easeInOut)
+    )
+    private var sectionedItems: SectionedFetchResults<String?, Item>
+    
+    
     
     var body: some View {
         NavigationStack {
-                List {
-                    Section("Items") {
-                        ForEach(items, id: \.itemID) { item in
-                            ItemRow(item: item)
-                                .contentShape(Rectangle())
-                                .listRowBackground(item.listBackgroundColor)
-                                .onTapGesture {
-                                    item.itemStatus = .needed
-                                    dataController.save()
-                                }
-                                .onLongPressGesture {
-                                    item.itemStatus = .unneeded
-                                    dataController.save()
-                                }
-                        }
+            List(sectionedItems) { section in
+                Section(header: Text(section.id ?? "")) {
+                    ForEach(section) { item in
+                        ItemRow(item: item)
+                            .contentShape(Rectangle())
+                            .listRowBackground(item.listBackgroundColor)
+                            .onTapGesture {
+                                item.itemStatus = .needed
+                                dataController.save()
+                            }
+                            .onLongPressGesture {
+                                item.itemStatus = .unneeded
+                                dataController.save()
+                            }
                     }
                 }
-
+            }
+            
             .navigationTitle("TurtleShop")
+//            .searchable(text: $dataController.filterText)
+            
             .toolbar {
                 Button {
                     dataController.deleteAll()
@@ -47,6 +60,6 @@ struct ShoppingListView: View {
 }
 
 #Preview {
-   ShoppingListView()
+    ShoppingListView()
         .environmentObject(DataController.preview)
 }
