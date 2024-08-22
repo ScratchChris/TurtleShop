@@ -153,39 +153,79 @@ class DataController: ObservableObject {
         
     }
     
-    func itemsForSelection() -> [Item] {
-        var predicates = [NSPredicate]()
+    //    func itemsForSelection() -> [Item] {
+    //        var predicates = [NSPredicate]()
+    //
+    //        if let selectedLocation = selectedLocation {
+    //            let locationPredicate = NSPredicate(format: "location == %@", selectedLocation)
+    //            predicates.append(locationPredicate)
+    //        }
+    //
+    //        if let selectedMeal = selectedMeal {
+    //            let mealPredicate = NSPredicate(format: "meals CONTAINS %@", selectedMeal)
+    //            predicates.append(mealPredicate)
+    //        }
+    //
+    //        let trimmedFilterText = filterText.trimmingCharacters(in: .whitespaces)
+    //
+    //        if trimmedFilterText.isEmpty == false {
+    //            let itemPredicate = NSPredicate(format: "name CONTAINS[c] %@", trimmedFilterText)
+    //            predicates.append(itemPredicate)
+    //        }
+    //
+    //        let request = Item.fetchRequest()
+    //        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+    //        let allItems = (try? container.viewContext.fetch(request)) ?? []
+    //        print(allItems.count)
+    //        return allItems.sorted()
+    //
+    //
+    //    }
+    
+    func newItem() {
+        let item = Item(context: container.viewContext)
+        item.id = UUID()
+        item.name = "New Item"
+        item.itemStatus = .unselected
         
         if let selectedLocation = selectedLocation {
-            let locationPredicate = NSPredicate(format: "location == %@", selectedLocation)
-            predicates.append(locationPredicate)
+            item.location = selectedLocation
         }
         
         if let selectedMeal = selectedMeal {
-            let mealPredicate = NSPredicate(format: "meals CONTAINS %@", selectedMeal)
-            predicates.append(mealPredicate)
+            item.addToMeals(selectedMeal)
+            item.itemNewOrStaple = .neither
+            item.onShoppingList = false
+        } else {
+            item.itemNewOrStaple = .new
+            item.onShoppingList = true
         }
+        save()
         
-        let trimmedFilterText = filterText.trimmingCharacters(in: .whitespaces)
-        
-        if trimmedFilterText.isEmpty == false {
-            let itemPredicate = NSPredicate(format: "name CONTAINS[c] %@", trimmedFilterText)
-            predicates.append(itemPredicate)
-        }
-        
-        let request = Item.fetchRequest()
-        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
-        let allItems = (try? container.viewContext.fetch(request)) ?? []
-        print(allItems.count)
-        return allItems.sorted()
-        
-        
-    }
-    
-    func resetVariables() {
+        selectedItem = item
         selectedMeal = nil
         selectedLocation = nil
     }
+    
+    func newMeal() {
+        let meal = Meal(context: container.viewContext)
+        meal.id = UUID()
+        meal.name = "New Meal"
+        meal.selected = false
+        save()
+        
+        selectedMeal = meal
+    }
+    
+    func newLocation() {
+        let location = Location(context: container.viewContext)
+        location.id = UUID()
+        location.name = ""
+        save()
+        
+        selectedLocation = location
+    }
+    
     
 }
 

@@ -13,7 +13,8 @@ extension Location {
     }
     
     var locationName: String {
-        name ?? ""
+        get { name ?? "" }
+        set { name = newValue }
     }
     
     var locationItems: [Item] {

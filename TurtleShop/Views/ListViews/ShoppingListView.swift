@@ -17,10 +17,11 @@ struct ShoppingListView: View {
             SortDescriptor(\.status, order: .forward),
             SortDescriptor(\.name, order: .forward)
         ]
-//        animation: (.easeInOut)
+        //        animation: (.easeInOut)
     )
     private var sectionedItems: SectionedFetchResults<String?, Item>
     
+    @State private var isShowingItemView = false
     
     
     var body: some View {
@@ -44,18 +45,29 @@ struct ShoppingListView: View {
             }
             
             .navigationTitle("TurtleShop")
-//            .searchable(text: $dataController.filterText)
+            //            .searchable(text: $dataController.filterText)
             
             .toolbar {
+                Button {
+                    dataController.newItem()
+                    isShowingItemView.toggle()
+                } label : {
+                    Label("Add Item", systemImage: "plus")
+                }
+                .sheet(isPresented: $isShowingItemView) {
+                    ItemView(item: dataController.selectedItem!)
+                }
+                
+#if DEBUG
                 Button {
                     dataController.deleteAll()
                     dataController.createSampleData()
                 } label: {
                     Label("ADD SAMPLES", systemImage: "flame")
                 }
+#endif
             }
         }
-        
     }
 }
 

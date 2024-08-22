@@ -1,5 +1,5 @@
 //
-//  ItemRow.swift
+//  IngredientsRow.swift
 //  TurtleShop
 //
 //  Created by Chris Turner on 14/08/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ItemRow: View {
+struct IngredientsRow: View {
     @EnvironmentObject var dataController: DataController
     @ObservedObject var item: Item
     @State private var isShowingItemView = false
@@ -32,19 +32,7 @@ struct ItemRow: View {
                         .foregroundStyle(.white, .blue)
                 }
             }
-            if item.itemStatus == .unselected {
-                Text(item.itemName)
-            } else if item.itemStatus == .needed {
-                Text(item.itemName)
-                Spacer()
-                Image(systemName: "checkmark")
-            } else if item.itemStatus == .unneeded {
-                Text(item.itemName)
-                    .strikethrough()
-                Spacer()
-                Image(systemName: "xmark")
-                
-            }
+            Text(item.itemName)
 
         }
         .navigationDestination(isPresented: $isShowingItemView) {
@@ -83,5 +71,5 @@ struct ItemRow: View {
 }
 
 #Preview {
-    ItemRow(item: .example)
+    IngredientsRow(item: .example)
 }

@@ -28,7 +28,7 @@ struct MealListView: View {
                                 NavigationLink(destination: MealIngredientsList(meal: meal)) {
                                     
                                     Button("", systemImage: "pencil", action: {
-                                      
+                                        dataController.selectedMeal = meal
                                     })
                                     .tint(.green)
                                 }
@@ -38,7 +38,20 @@ struct MealListView: View {
                     }
                 }
             }
+            .toolbar {
+                Button {
+                    dataController.newMeal()
+                    ingredientsViewShowing.toggle()
+                } label : {
+                    Label("Add Meal", systemImage: "plus")
+                }
+            }
             .navigationTitle("Meals")
+            .navigationDestination(isPresented: $ingredientsViewShowing) {
+                if let selectedMeal = dataController.selectedMeal {
+                    MealIngredientsList(meal: selectedMeal)
+                }
+            }
         }
         
     }

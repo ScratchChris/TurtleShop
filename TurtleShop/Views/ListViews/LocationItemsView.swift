@@ -10,7 +10,9 @@ import SwiftUI
 struct LocationItemsView: View {
     @EnvironmentObject var dataController: DataController
     
-    var location: Location
+    @ObservedObject var location: Location
+    
+    @State private var isShowingNewItemView = false
 
     var items: [Item] {
         var allItems: [Item]
@@ -23,17 +25,45 @@ struct LocationItemsView: View {
     }
     
     var body: some View {
-        List {
-            ForEach (items) { item in
-                ItemRow(item: item)
-                    .contentShape(Rectangle())
-                    .listRowBackground(item.listBackgroundColor)
+        NavigationStack {
+            Form {
+                Section("Location Name") {
+                    VStack(alignment: .leading) {
+                        TextField("Item Name", text: $location.locationName, prompt: Text("Enter the location name here"))
+                            .font(.title)
+                    }
+                }
+                
+                List {
+                    Section("Items in location") {
+                        ForEach (items) { item in
+                            ItemRow(item: item)
+                                .contentShape(Rectangle())
+                                .listRowBackground(item.listBackgroundColor)
+                        }
+                    }
+                }
             }
-        }
-        .navigationTitle(location.locationName)
-        .navigationBarTitleDisplayMode(.inline)
-        .onReceive(location.objectWillChange) { _ in
-            dataController.queueSave()
+            .navigationTitle(location.locationName)
+            .navigationBarTitleDisplayMode(.inline)
+            .onReceive(location.objectWillChange) { _ in
+                dataController.queueSave()
+            }
+            .toolbar {
+                Button {
+                    dataController.selectedMeal = nil
+                    dataController.selectedLocation = location
+                    dataController.newItem()
+                    isShowingNewItemView.toggle()
+                } label : {
+                    Label("Add Item", systemImage: "plus")
+                }
+            }
+            .navigationDestination(isPresented: $isShowingNewItemView) {
+                if let selectedItem = dataController.selectedItem {
+                    ItemView(item: selectedItem)
+                }
+            }
         }
     }
 }

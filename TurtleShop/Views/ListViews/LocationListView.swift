@@ -12,6 +12,8 @@ struct LocationListView: View {
     
     @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var locations: FetchedResults<Location>
     
+    @State private var isShowingLocationItemsView = false
+    
     var body: some View {
         NavigationStack {
             List {
@@ -34,7 +36,21 @@ struct LocationListView: View {
                             }
                     }
                 }
-                .navigationTitle("Locations")
+                
+            }
+            .navigationTitle("Locations")
+            .toolbar {
+                Button {
+                    dataController.newLocation()
+                    isShowingLocationItemsView.toggle()
+                } label : {
+                    Label("Add Meal", systemImage: "plus")
+                }
+            }
+            .navigationDestination(isPresented: $isShowingLocationItemsView) {
+                if let selectedLocation = dataController.selectedLocation {
+                    LocationItemsView(location: selectedLocation)
+                }
             }
             
         }
