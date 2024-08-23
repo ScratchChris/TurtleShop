@@ -226,6 +226,10 @@ class DataController: ObservableObject {
         selectedLocation = location
     }
     
+    func ingredientsToShoppingList() {
+        
+    }
+    
     
 }
 

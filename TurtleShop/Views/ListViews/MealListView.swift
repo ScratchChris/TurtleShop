@@ -19,7 +19,7 @@ struct MealListView: View {
             List {
                 Section("Items") {
                     ForEach(meals) { meal in
-                        Text(meal.mealName)
+                        MealRow(meal: meal)
                             .badge(meal.mealIngredients.count)
                             .swipeActions(edge: .trailing) {
                                 Button("", systemImage: "trash", role: .destructive, action: {
@@ -34,7 +34,12 @@ struct MealListView: View {
                                 }
                                 
                             }
-                        
+                            .onTapGesture {
+                                meal.selected = true
+                            }
+                            .onLongPressGesture {
+                                meal.selected = false
+                            }
                     }
                 }
             }
