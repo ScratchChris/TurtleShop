@@ -17,7 +17,6 @@ struct LocationListView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Items") {
                     ForEach(locations) { location in
                         
                         Text(location.locationName)
@@ -35,7 +34,6 @@ struct LocationListView: View {
                                 
                             }
                     }
-                }
                 
             }
             .navigationTitle("Locations")

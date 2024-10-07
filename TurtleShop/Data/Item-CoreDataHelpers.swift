@@ -29,6 +29,15 @@ extension Item {
         return result.sorted()
     }
     
+    var itemSelectedMeals: [Meal] {
+        let result = meals?.allObjects as? [Meal] ?? []
+        return result.filter { $0.selected == true }
+    }
+    
+    var mealsCount: Int {
+        meals?.count ?? 0
+    }
+    
     var listBackgroundColor: Color {
         switch itemStatus {
         case .unselected:

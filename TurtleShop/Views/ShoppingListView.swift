@@ -16,13 +16,16 @@ struct ShoppingListView: View {
             SortDescriptor(\.location!.name, order: .forward),
             SortDescriptor(\.status, order: .forward),
             SortDescriptor(\.name, order: .forward)
-        ]
-        //        animation: (.easeInOut)
+        ],
+        predicate: NSPredicate(format: "onShoppingList == true"),
+                animation: (.easeInOut)
     )
     private var sectionedItems: SectionedFetchResults<String?, Item>
     
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var locations: FetchedResults<Location>
+
+    @State private var isShowingNoLocationsAlert = false
     @State private var isShowingItemView = false
-    
     
     var body: some View {
         NavigationStack {
@@ -49,14 +52,21 @@ struct ShoppingListView: View {
             
             .toolbar {
                 Button {
-                    dataController.newItem()
-                    isShowingItemView.toggle()
+                    if locations.isEmpty {
+                        isShowingNoLocationsAlert.toggle()
+                    } else {
+                        dataController.newItem()
+                        isShowingItemView.toggle()
+                    }
                 } label : {
                     Label("Add Item", systemImage: "plus")
                 }
                 .sheet(isPresented: $isShowingItemView) {
                     ItemView(item: dataController.selectedItem!)
+                        
                 }
+                .interactiveDismissDisabled()
+                
                 
 #if DEBUG
                 Button {
@@ -66,6 +76,9 @@ struct ShoppingListView: View {
                     Label("ADD SAMPLES", systemImage: "flame")
                 }
 #endif
+            }
+            .alert("No Locations", isPresented: $isShowingNoLocationsAlert) {
+                Button("Ok", role: .cancel) { }
             }
         }
     }

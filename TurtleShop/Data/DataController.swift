@@ -7,6 +7,12 @@
 
 import CoreData
 
+enum FocusedField {
+    case itemName
+    case mealName
+    case locationName
+}
+
 class DataController: ObservableObject {
     let container: NSPersistentCloudKitContainer
     
@@ -48,42 +54,42 @@ class DataController: ObservableObject {
     func createSampleData() {
         //deletes existing data and creates new samples
         
-        let viewContext = container.viewContext
-        
-        for i in 1...5 {
-            let location = Location(context: viewContext)
-            location.id = UUID()
-            location.name = "Location \(i)"
-            
-            let meal = Meal(context:viewContext)
-            meal.id = UUID()
-            meal.name = "Meal \(i)"
-            
-            for j in 1...5 {
-                let item = Item(context: viewContext)
-                item.id = UUID()
-                item.name = "Item \(i)-\(j)"
-                item.itemNewOrStaple = .new
-                item.onShoppingList = true
-                item.itemStatus = .unselected
-                location.addToItems(item)
-                meal.addToIngredients(item)
-            }
-            
-            for k in 1...5 {
-                let item = Item(context: viewContext)
-                item.id = UUID()
-                item.name = "Item \(i)-\(k+5)"
-                item.itemNewOrStaple = .staple
-                item.onShoppingList = true
-                item.itemStatus = .unselected
-                location.addToItems(item)
-                meal.addToIngredients(item)
-            }
-            
-        }
-        
-        try? viewContext.save()
+//        let viewContext = container.viewContext
+//        
+//        for i in 1...5 {
+//            let location = Location(context: viewContext)
+//            location.id = UUID()
+//            location.name = "Location \(i)"
+//            
+//            let meal = Meal(context:viewContext)
+//            meal.id = UUID()
+//            meal.name = "Meal \(i)"
+//            
+//            for j in 1...5 {
+//                let item = Item(context: viewContext)
+//                item.id = UUID()
+//                item.name = "Item \(i)-\(j)"
+//                item.itemNewOrStaple = .new
+//                item.onShoppingList = true
+//                item.itemStatus = .unselected
+//                location.addToItems(item)
+//                meal.addToIngredients(item)
+//            }
+//            
+//            for k in 1...5 {
+//                let item = Item(context: viewContext)
+//                item.id = UUID()
+//                item.name = "Item \(i)-\(k+5)"
+//                item.itemNewOrStaple = .staple
+//                item.onShoppingList = true
+//                item.itemStatus = .unselected
+//                location.addToItems(item)
+//                meal.addToIngredients(item)
+//            }
+//            
+//        }
+//        
+//        try? viewContext.save()
     }
     
     func save() {
@@ -185,7 +191,7 @@ class DataController: ObservableObject {
     func newItem() {
         let item = Item(context: container.viewContext)
         item.id = UUID()
-        item.name = "New Item"
+        item.name = ""
         item.itemStatus = .unselected
         
         if let selectedLocation = selectedLocation {
@@ -195,7 +201,11 @@ class DataController: ObservableObject {
         if let selectedMeal = selectedMeal {
             item.addToMeals(selectedMeal)
             item.itemNewOrStaple = .neither
-            item.onShoppingList = false
+            if selectedMeal.selected == true {
+                item.onShoppingList = true
+            } else {
+                item.onShoppingList = false
+            }
         } else {
             item.itemNewOrStaple = .new
             item.onShoppingList = true
@@ -210,7 +220,7 @@ class DataController: ObservableObject {
     func newMeal() {
         let meal = Meal(context: container.viewContext)
         meal.id = UUID()
-        meal.name = "New Meal"
+        meal.name = ""
         meal.selected = false
         save()
         

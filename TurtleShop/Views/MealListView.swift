@@ -17,7 +17,6 @@ struct MealListView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Items") {
                     ForEach(meals) { meal in
                         MealRow(meal: meal)
                             .badge(meal.mealIngredients.count)
@@ -36,12 +35,17 @@ struct MealListView: View {
                             }
                             .onTapGesture {
                                 meal.selected = true
+                                for item in meal.mealIngredients {
+                                    item.onShoppingList = true
+                                }
                             }
                             .onLongPressGesture {
                                 meal.selected = false
+                                for item in meal.mealIngredients {
+                                    item.onShoppingList = false
+                                }
                             }
                     }
-                }
             }
             .toolbar {
                 Button {

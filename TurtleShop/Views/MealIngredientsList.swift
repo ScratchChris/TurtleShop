@@ -11,14 +11,18 @@ struct MealIngredientsList: View {
     @EnvironmentObject var dataController: DataController
     
     @ObservedObject var meal: Meal
+    @Environment(\.presentationMode) var presentationMode
     
+    @State private var isShowingNoNameAlert = false
     @State private var isShowingNewItemView = false
+    @FocusState private var focusedField: FocusedField?
+    @State private var newOrEdit : newOrEdit = .edit
     
     var items: [Item] {
         var allItems: [Item]
         
         let request = Item.fetchRequest()
-        request.predicate = NSPredicate(format: "ANY meals = %@", meal)
+        request.predicate = NSPredicate(format: "ANY meals == %@", meal)
         allItems = (try? dataController.container.viewContext.fetch(request)) ?? []
         
         return allItems.sorted()
@@ -28,7 +32,7 @@ struct MealIngredientsList: View {
         var allItems: [Item]
         
         let request = Item.fetchRequest()
-        request.predicate = NSPredicate(format: "ANY meals != %@", meal)
+//        request.predicate = NSPredicate(format: "NOT (ANY meals != %@)", meal)
         allItems = (try? dataController.container.viewContext.fetch(request)) ?? []
         
         return allItems.sorted()
@@ -42,8 +46,8 @@ struct MealIngredientsList: View {
                 Section("Meal Name") {
                     VStack(alignment: .leading) {
                         TextField("Item Name", text: $meal.mealName, prompt: Text("Enter the meal name here"))
-                            .font(.title)
                     }
+                    .focused($focusedField, equals: .mealName)
                 }
                 Section("Meal Categories") {
                     Text("Meal Categories to go here")
@@ -78,10 +82,16 @@ struct MealIngredientsList: View {
                     }
                 }
             }
-            .navigationTitle(meal.mealName)
+            .navigationTitle("Edit Meal")
             .navigationBarTitleDisplayMode(.inline)
             .onReceive(meal.objectWillChange) { _ in
                 dataController.queueSave()
+            }
+            .onAppear {
+                if meal.mealName == "" {
+                    focusedField = .mealName
+                    newOrEdit = .new
+                }
             }
             .toolbar {
                 Button {
@@ -97,6 +107,34 @@ struct MealIngredientsList: View {
                     ItemView(item: selectedItem)
                 }
             }
+            .alert("Please enter a name for the meal", isPresented: $isShowingNoNameAlert) {
+                Button("Ok", role: .cancel) { }
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Save") {
+                        if meal.mealName == "" {
+                            isShowingNoNameAlert.toggle()
+                        } else {
+                            dataController.save()
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                    }
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancel", role: .destructive) {
+                        if newOrEdit == .new {
+                            dataController.delete(meal)
+                            self.presentationMode.wrappedValue.dismiss()
+                        } else {
+                            dataController.container.viewContext.rollback()
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                    }
+                    .foregroundColor(.red)
+                }
+            }
+            .navigationBarBackButtonHidden(true)
         }
     }
 }
