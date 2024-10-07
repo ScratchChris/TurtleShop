@@ -3,26 +3,81 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 60;
 	objects = {
+
+/* Begin PBXBuildFile section */
+		83391B582D26F323005BF30E /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B3C2D26F323005BF30E /* DataController.swift */; };
+		83391B592D26F323005BF30E /* Item-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B3D2D26F323005BF30E /* Item-CoreDataHelpers.swift */; };
+		83391B5A2D26F323005BF30E /* ItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B3E2D26F323005BF30E /* ItemStatus.swift */; };
+		83391B5B2D26F323005BF30E /* Location-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B3F2D26F323005BF30E /* Location-CoreDataHelpers.swift */; };
+		83391B5C2D26F323005BF30E /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 83391B402D26F323005BF30E /* Main.xcdatamodeld */; };
+		83391B5D2D26F323005BF30E /* Meal-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B412D26F323005BF30E /* Meal-CoreDataHelpers.swift */; };
+		83391B5E2D26F323005BF30E /* MealCategory-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B422D26F323005BF30E /* MealCategory-CoreDataHelpers.swift */; };
+		83391B5F2D26F323005BF30E /* NewOrStaple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B432D26F323005BF30E /* NewOrStaple.swift */; };
+		83391B602D26F323005BF30E /* IngredientsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B472D26F323005BF30E /* IngredientsRow.swift */; };
+		83391B612D26F323005BF30E /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B482D26F323005BF30E /* ItemRow.swift */; };
+		83391B622D26F323005BF30E /* MealRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B492D26F323005BF30E /* MealRow.swift */; };
+		83391B632D26F323005BF30E /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B4B2D26F323005BF30E /* ItemView.swift */; };
+		83391B642D26F323005BF30E /* LocationItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B4C2D26F323005BF30E /* LocationItemsView.swift */; };
+		83391B652D26F323005BF30E /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B4D2D26F323005BF30E /* LocationListView.swift */; };
+		83391B662D26F323005BF30E /* MealIngredientsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B4E2D26F323005BF30E /* MealIngredientsList.swift */; };
+		83391B672D26F323005BF30E /* MealListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B4F2D26F323005BF30E /* MealListView.swift */; };
+		83391B682D26F323005BF30E /* ShoppingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B502D26F323005BF30E /* ShoppingListView.swift */; };
+		83391B692D26F323005BF30E /* TurtleShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B552D26F323005BF30E /* TurtleShopApp.swift */; };
+		83391B6A2D26F323005BF30E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83391B452D26F323005BF30E /* Preview Assets.xcassets */; };
+		83391B6B2D26F323005BF30E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83391B522D26F323005BF30E /* Assets.xcassets */; };
+		83391B972D33E5DB005BF30E /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B962D33E5DB005BF30E /* Bundle-Decodable.swift */; };
+		83391B9A2D33E62A005BF30E /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = 83391B992D33E62A005BF30E /* Awards.json */; };
+		83391B9C2D33E632005BF30E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83391B9B2D33E632005BF30E /* Colors.xcassets */; };
+		83391B9E2D33E6C0005BF30E /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B9D2D33E6C0005BF30E /* Award.swift */; };
+		83391BA02D33E768005BF30E /* AwardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391B9F2D33E768005BF30E /* AwardsView.swift */; };
+		83391BA52D33E7B4005BF30E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391BA42D33E7B4005BF30E /* SettingsView.swift */; };
+		83391BA72D351D36005BF30E /* ShoppingListToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391BA62D351D36005BF30E /* ShoppingListToolBar.swift */; };
+		83391BAA2D3521B7005BF30E /* LocationItemsViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391BA92D3521B7005BF30E /* LocationItemsViewToolbar.swift */; };
+		83391BAD2D3D30A1005BF30E /* MealCategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391BAC2D3D30A1005BF30E /* MealCategoryList.swift */; };
+		83391BAF2D3D345E005BF30E /* MealCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391BAE2D3D345E005BF30E /* MealCategoryView.swift */; };
+		83391BB22D3D8DBE005BF30E /* GoShoppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391BB12D3D8DBE005BF30E /* GoShoppingView.swift */; };
+		83391BB42D3D90AB005BF30E /* ShoppingTrip-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391BB32D3D90AB005BF30E /* ShoppingTrip-CoreDataHelpers.swift */; };
+/* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		830E7B2D2C62991200D5604C /* TurtleShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurtleShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83391B3C2D26F323005BF30E /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		83391B3D2D26F323005BF30E /* Item-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item-CoreDataHelpers.swift"; sourceTree = "<group>"; };
+		83391B3E2D26F323005BF30E /* ItemStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStatus.swift; sourceTree = "<group>"; };
+		83391B3F2D26F323005BF30E /* Location-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location-CoreDataHelpers.swift"; sourceTree = "<group>"; };
+		83391B412D26F323005BF30E /* Meal-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Meal-CoreDataHelpers.swift"; sourceTree = "<group>"; };
+		83391B422D26F323005BF30E /* MealCategory-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MealCategory-CoreDataHelpers.swift"; sourceTree = "<group>"; };
+		83391B432D26F323005BF30E /* NewOrStaple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrStaple.swift; sourceTree = "<group>"; };
+		83391B452D26F323005BF30E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		83391B472D26F323005BF30E /* IngredientsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsRow.swift; sourceTree = "<group>"; };
+		83391B482D26F323005BF30E /* ItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRow.swift; sourceTree = "<group>"; };
+		83391B492D26F323005BF30E /* MealRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRow.swift; sourceTree = "<group>"; };
+		83391B4B2D26F323005BF30E /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		83391B4C2D26F323005BF30E /* LocationItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationItemsView.swift; sourceTree = "<group>"; };
+		83391B4D2D26F323005BF30E /* LocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
+		83391B4E2D26F323005BF30E /* MealIngredientsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealIngredientsList.swift; sourceTree = "<group>"; };
+		83391B4F2D26F323005BF30E /* MealListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListView.swift; sourceTree = "<group>"; };
+		83391B502D26F323005BF30E /* ShoppingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListView.swift; sourceTree = "<group>"; };
+		83391B522D26F323005BF30E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		83391B532D26F323005BF30E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83391B542D26F323005BF30E /* TurtleShop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TurtleShop.entitlements; sourceTree = "<group>"; };
+		83391B552D26F323005BF30E /* TurtleShopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurtleShopApp.swift; sourceTree = "<group>"; };
+		83391B572D26F323005BF30E /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
+		83391B962D33E5DB005BF30E /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		83391B992D33E62A005BF30E /* Awards.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Awards.json; sourceTree = "<group>"; };
+		83391B9B2D33E632005BF30E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		83391B9D2D33E6C0005BF30E /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
+		83391B9F2D33E768005BF30E /* AwardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
+		83391BA42D33E7B4005BF30E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		83391BA62D351D36005BF30E /* ShoppingListToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListToolBar.swift; sourceTree = "<group>"; };
+		83391BA92D3521B7005BF30E /* LocationItemsViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationItemsViewToolbar.swift; sourceTree = "<group>"; };
+		83391BAC2D3D30A1005BF30E /* MealCategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCategoryList.swift; sourceTree = "<group>"; };
+		83391BAE2D3D345E005BF30E /* MealCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCategoryView.swift; sourceTree = "<group>"; };
+		83391BB12D3D8DBE005BF30E /* GoShoppingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoShoppingView.swift; sourceTree = "<group>"; };
+		83391BB32D3D90AB005BF30E /* ShoppingTrip-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShoppingTrip-CoreDataHelpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		830E7B612C62AD7E00D5604C /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 830E7B2C2C62991200D5604C /* TurtleShop */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		830E7B2F2C62991200D5604C /* TurtleShop */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (830E7B612C62AD7E00D5604C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TurtleShop; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		830E7B2A2C62991200D5604C /* Frameworks */ = {
@@ -38,7 +93,7 @@
 		830E7B242C62991200D5604C = {
 			isa = PBXGroup;
 			children = (
-				830E7B2F2C62991200D5604C /* TurtleShop */,
+				83391B562D26F323005BF30E /* TurtleShop */,
 				830E7B2E2C62991200D5604C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +104,135 @@
 				830E7B2D2C62991200D5604C /* TurtleShop.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		83391B462D26F323005BF30E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				83391B452D26F323005BF30E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		83391B562D26F323005BF30E /* TurtleShop */ = {
+			isa = PBXGroup;
+			children = (
+				83391B982D33E616005BF30E /* Awards */,
+				83391BA82D3520AC005BF30E /* ShoppingList */,
+				83391B6D2D26F711005BF30E /* Items */,
+				83391B6F2D26F744005BF30E /* Meals */,
+				83391BAB2D3D308B005BF30E /* MealCategories */,
+				83391B6E2D26F730005BF30E /* Locations */,
+				83391BB02D3D8DAC005BF30E /* GoShopping */,
+				83391BA12D33E77F005BF30E /* Settings */,
+				83391B762D26F78F005BF30E /* Extensions */,
+				83391B772D26F7C8005BF30E /* Configuration */,
+				83391B552D26F323005BF30E /* TurtleShopApp.swift */,
+				83391B3C2D26F323005BF30E /* DataController.swift */,
+				83391B522D26F323005BF30E /* Assets.xcassets */,
+				83391B9B2D33E632005BF30E /* Colors.xcassets */,
+				83391B462D26F323005BF30E /* Preview Content */,
+			);
+			path = TurtleShop;
+			sourceTree = "<group>";
+		};
+		83391B6D2D26F711005BF30E /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				83391B3E2D26F323005BF30E /* ItemStatus.swift */,
+				83391B432D26F323005BF30E /* NewOrStaple.swift */,
+				83391B482D26F323005BF30E /* ItemRow.swift */,
+				83391B4B2D26F323005BF30E /* ItemView.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		83391B6E2D26F730005BF30E /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+				83391B4C2D26F323005BF30E /* LocationItemsView.swift */,
+				83391BA92D3521B7005BF30E /* LocationItemsViewToolbar.swift */,
+				83391B4D2D26F323005BF30E /* LocationListView.swift */,
+			);
+			path = Locations;
+			sourceTree = "<group>";
+		};
+		83391B6F2D26F744005BF30E /* Meals */ = {
+			isa = PBXGroup;
+			children = (
+				83391B492D26F323005BF30E /* MealRow.swift */,
+				83391B4E2D26F323005BF30E /* MealIngredientsList.swift */,
+				83391B4F2D26F323005BF30E /* MealListView.swift */,
+				83391B472D26F323005BF30E /* IngredientsRow.swift */,
+			);
+			path = Meals;
+			sourceTree = "<group>";
+		};
+		83391B762D26F78F005BF30E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				83391B3D2D26F323005BF30E /* Item-CoreDataHelpers.swift */,
+				83391B412D26F323005BF30E /* Meal-CoreDataHelpers.swift */,
+				83391B3F2D26F323005BF30E /* Location-CoreDataHelpers.swift */,
+				83391B422D26F323005BF30E /* MealCategory-CoreDataHelpers.swift */,
+				83391B962D33E5DB005BF30E /* Bundle-Decodable.swift */,
+				83391BB32D3D90AB005BF30E /* ShoppingTrip-CoreDataHelpers.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		83391B772D26F7C8005BF30E /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				83391B402D26F323005BF30E /* Main.xcdatamodeld */,
+				83391B532D26F323005BF30E /* Info.plist */,
+				83391B542D26F323005BF30E /* TurtleShop.entitlements */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		83391B982D33E616005BF30E /* Awards */ = {
+			isa = PBXGroup;
+			children = (
+				83391B992D33E62A005BF30E /* Awards.json */,
+				83391B9D2D33E6C0005BF30E /* Award.swift */,
+				83391B9F2D33E768005BF30E /* AwardsView.swift */,
+			);
+			path = Awards;
+			sourceTree = "<group>";
+		};
+		83391BA12D33E77F005BF30E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				83391BA42D33E7B4005BF30E /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		83391BA82D3520AC005BF30E /* ShoppingList */ = {
+			isa = PBXGroup;
+			children = (
+				83391B502D26F323005BF30E /* ShoppingListView.swift */,
+				83391BA62D351D36005BF30E /* ShoppingListToolBar.swift */,
+			);
+			path = ShoppingList;
+			sourceTree = "<group>";
+		};
+		83391BAB2D3D308B005BF30E /* MealCategories */ = {
+			isa = PBXGroup;
+			children = (
+				83391BAC2D3D30A1005BF30E /* MealCategoryList.swift */,
+				83391BAE2D3D345E005BF30E /* MealCategoryView.swift */,
+			);
+			path = MealCategories;
+			sourceTree = "<group>";
+		};
+		83391BB02D3D8DAC005BF30E /* GoShopping */ = {
+			isa = PBXGroup;
+			children = (
+				83391BB12D3D8DBE005BF30E /* GoShoppingView.swift */,
+			);
+			path = GoShopping;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -66,9 +250,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				830E7B2F2C62991200D5604C /* TurtleShop */,
-			);
 			name = TurtleShop;
 			packageProductDependencies = (
 			);
@@ -84,7 +265,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
-				LastUpgradeCheck = 1600;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					830E7B2C2C62991200D5604C = {
 						CreatedOnToolsVersion = 16.0;
@@ -114,6 +295,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83391B6A2D26F323005BF30E /* Preview Assets.xcassets in Resources */,
+				83391B9C2D33E632005BF30E /* Colors.xcassets in Resources */,
+				83391B9A2D33E62A005BF30E /* Awards.json in Resources */,
+				83391B6B2D26F323005BF30E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +309,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83391B582D26F323005BF30E /* DataController.swift in Sources */,
+				83391B592D26F323005BF30E /* Item-CoreDataHelpers.swift in Sources */,
+				83391B5A2D26F323005BF30E /* ItemStatus.swift in Sources */,
+				83391BB42D3D90AB005BF30E /* ShoppingTrip-CoreDataHelpers.swift in Sources */,
+				83391B5B2D26F323005BF30E /* Location-CoreDataHelpers.swift in Sources */,
+				83391B5C2D26F323005BF30E /* Main.xcdatamodeld in Sources */,
+				83391B5D2D26F323005BF30E /* Meal-CoreDataHelpers.swift in Sources */,
+				83391B5E2D26F323005BF30E /* MealCategory-CoreDataHelpers.swift in Sources */,
+				83391B5F2D26F323005BF30E /* NewOrStaple.swift in Sources */,
+				83391B602D26F323005BF30E /* IngredientsRow.swift in Sources */,
+				83391B612D26F323005BF30E /* ItemRow.swift in Sources */,
+				83391B622D26F323005BF30E /* MealRow.swift in Sources */,
+				83391B632D26F323005BF30E /* ItemView.swift in Sources */,
+				83391B642D26F323005BF30E /* LocationItemsView.swift in Sources */,
+				83391BB22D3D8DBE005BF30E /* GoShoppingView.swift in Sources */,
+				83391B9E2D33E6C0005BF30E /* Award.swift in Sources */,
+				83391B652D26F323005BF30E /* LocationListView.swift in Sources */,
+				83391B662D26F323005BF30E /* MealIngredientsList.swift in Sources */,
+				83391B672D26F323005BF30E /* MealListView.swift in Sources */,
+				83391B682D26F323005BF30E /* ShoppingListView.swift in Sources */,
+				83391BAA2D3521B7005BF30E /* LocationItemsViewToolbar.swift in Sources */,
+				83391B692D26F323005BF30E /* TurtleShopApp.swift in Sources */,
+				83391B972D33E5DB005BF30E /* Bundle-Decodable.swift in Sources */,
+				83391BA72D351D36005BF30E /* ShoppingListToolBar.swift in Sources */,
+				83391BA02D33E768005BF30E /* AwardsView.swift in Sources */,
+				83391BA52D33E7B4005BF30E /* SettingsView.swift in Sources */,
+				83391BAF2D3D345E005BF30E /* MealCategoryView.swift in Sources */,
+				83391BAD2D3D30A1005BF30E /* MealCategoryList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +377,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -225,6 +439,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -248,16 +463,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = NO;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = TurtleShop/TurtleShop.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TurtleShop/Configuration/TurtleShop.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"TurtleShop/Preview Content\"";
 				DEVELOPMENT_TEAM = 7C2MU84W5P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TurtleShop/Info.plist;
+				INFOPLIST_FILE = TurtleShop/Configuration/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -288,16 +505,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = NO;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = TurtleShop/TurtleShop.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TurtleShop/Configuration/TurtleShop.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"TurtleShop/Preview Content\"";
 				DEVELOPMENT_TEAM = 7C2MU84W5P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TurtleShop/Info.plist;
+				INFOPLIST_FILE = TurtleShop/Configuration/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -346,6 +565,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		83391B402D26F323005BF30E /* Main.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				83391B572D26F323005BF30E /* Main.xcdatamodel */,
+			);
+			currentVersion = 83391B572D26F323005BF30E /* Main.xcdatamodel */;
+			path = Main.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 830E7B252C62991200D5604C /* Project object */;
 }

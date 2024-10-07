@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct TurtleShopApp: App {
     @StateObject var dataController = DataController()
-    @Environment(\.scenePhase) var scenePhase
+//    @Environment(\.scenePhase) var scenePhase
     
     var body: some Scene {
         WindowGroup {
@@ -18,7 +18,6 @@ struct TurtleShopApp: App {
                 Tab("Shopping List", systemImage: "pencil.and.list.clipboard") {
                     ShoppingListView()
                 }
-                .badge(2)
                 Tab("Meals", systemImage: "fork.knife") {
                     MealListView()
                 }
@@ -26,17 +25,17 @@ struct TurtleShopApp: App {
                     LocationListView()
                 }
                 Tab("Settings", systemImage: "gear") {
-                    Text("Settings")
+                    SettingsView()
                 }
                   
             }
             .environment(\.managedObjectContext, dataController.container.viewContext)
             .environmentObject(dataController)
-            .onChange(of: scenePhase) { oldValue, newValue in
-                if newValue != .active {
-                    dataController.save()
-                }
-            }
+//            .onChange(of: scenePhase) { oldValue, newValue in
+//                if newValue != .active {
+//                    dataController.save()
+//                }
+//            }
         }
     }
 }
