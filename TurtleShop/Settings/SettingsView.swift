@@ -11,8 +11,15 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             List {
-                NavigationLink(destination: AwardsView()) {
-                    Text("Awards")
+                Section("Awards") {
+                    NavigationLink(destination: AwardsView()) {
+                        Text("Awards")
+                    }
+                }
+                Section("Shopping Trips") {
+                    NavigationLink(destination: ShoppingTrips()) {
+                        Text("Shopping Trips")
+                    }
                 }
             }
         }

@@ -58,6 +58,7 @@ struct ShoppingListView: View {
                     Button("Go Shopping!") {
                         dataController.newShoppingTrip()
                         for item in allItems {
+                            item.purchased = false
                             if item.itemStatus == .needed {
                                 dataController.selectedShoppingTrip!.addToPurchasedOnShoppingTrip(item)
                             }

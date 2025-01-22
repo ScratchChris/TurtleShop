@@ -5,14 +5,29 @@
 //  Created by Chris Turner on 22/01/2025.
 //
 
+import CoreData
 import SwiftUI
 
 struct ShoppingTripView: View {
+    @EnvironmentObject var dataController: DataController
+
+    @Environment(\.presentationMode) var presentationMode
+
+    @ObservedObject var shoppingTrip: ShoppingTrip
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List {
+                ForEach(shoppingTrip.itemsInShoppingTrip, id: \.self) { item in
+                    Text(item.itemName)
+                }
+            }
+            .navigationTitle(shoppingTrip.shoppingTripDate.formatted())
+            .navigationBarTitleDisplayMode(.inline)
+        }
     }
 }
 
 #Preview {
-    ShoppingTripView()
+    ShoppingTripView(shoppingTrip: ShoppingTrip.example)
 }

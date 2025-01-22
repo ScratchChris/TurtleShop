@@ -157,7 +157,8 @@ class DataController: ObservableObject {
         item.id = UUID()
         item.name = ""
         item.itemStatus = .unselected
-        
+        item.purchased = false
+
         if let selectedLocation = selectedLocation {
             item.location = selectedLocation
         }
@@ -212,7 +213,10 @@ class DataController: ObservableObject {
     
     func newShoppingTrip() {
         let shoppingTrip = ShoppingTrip(context: container.viewContext)
-        shoppingTrip.date = .now
+        shoppingTrip.id = UUID()
+        shoppingTrip.date = Date.now
+        save()
+        
         selectedShoppingTrip = shoppingTrip
     }
 

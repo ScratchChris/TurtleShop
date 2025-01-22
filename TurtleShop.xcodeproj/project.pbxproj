@@ -39,6 +39,10 @@
 		83391BAF2D3D345E005BF30E /* MealCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391BAE2D3D345E005BF30E /* MealCategoryView.swift */; };
 		83391BB22D3D8DBE005BF30E /* GoShoppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391BB12D3D8DBE005BF30E /* GoShoppingView.swift */; };
 		83391BB42D3D90AB005BF30E /* ShoppingTrip-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391BB32D3D90AB005BF30E /* ShoppingTrip-CoreDataHelpers.swift */; };
+		83391BB62D402957005BF30E /* ShoppingTrips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391BB52D402957005BF30E /* ShoppingTrips.swift */; };
+		83391BB82D402ABC005BF30E /* GoShoppingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391BB72D402ABC005BF30E /* GoShoppingRow.swift */; };
+		83391BBA2D40ED20005BF30E /* ShoppingTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391BB92D40ED20005BF30E /* ShoppingTripView.swift */; };
+		83391BBC2D40F318005BF30E /* ShoppingTripRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391BBB2D40F318005BF30E /* ShoppingTripRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +81,10 @@
 		83391BAE2D3D345E005BF30E /* MealCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCategoryView.swift; sourceTree = "<group>"; };
 		83391BB12D3D8DBE005BF30E /* GoShoppingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoShoppingView.swift; sourceTree = "<group>"; };
 		83391BB32D3D90AB005BF30E /* ShoppingTrip-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShoppingTrip-CoreDataHelpers.swift"; sourceTree = "<group>"; };
+		83391BB52D402957005BF30E /* ShoppingTrips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTrips.swift; sourceTree = "<group>"; };
+		83391BB72D402ABC005BF30E /* GoShoppingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoShoppingRow.swift; sourceTree = "<group>"; };
+		83391BB92D40ED20005BF30E /* ShoppingTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTripView.swift; sourceTree = "<group>"; };
+		83391BBB2D40F318005BF30E /* ShoppingTripRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTripRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +213,9 @@
 			isa = PBXGroup;
 			children = (
 				83391BA42D33E7B4005BF30E /* SettingsView.swift */,
+				83391BB52D402957005BF30E /* ShoppingTrips.swift */,
+				83391BBB2D40F318005BF30E /* ShoppingTripRow.swift */,
+				83391BB92D40ED20005BF30E /* ShoppingTripView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -231,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				83391BB12D3D8DBE005BF30E /* GoShoppingView.swift */,
+				83391BB72D402ABC005BF30E /* GoShoppingRow.swift */,
 			);
 			path = GoShopping;
 			sourceTree = "<group>";
@@ -309,6 +321,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83391BBC2D40F318005BF30E /* ShoppingTripRow.swift in Sources */,
+				83391BB62D402957005BF30E /* ShoppingTrips.swift in Sources */,
 				83391B582D26F323005BF30E /* DataController.swift in Sources */,
 				83391B592D26F323005BF30E /* Item-CoreDataHelpers.swift in Sources */,
 				83391B5A2D26F323005BF30E /* ItemStatus.swift in Sources */,
@@ -316,6 +330,7 @@
 				83391B5B2D26F323005BF30E /* Location-CoreDataHelpers.swift in Sources */,
 				83391B5C2D26F323005BF30E /* Main.xcdatamodeld in Sources */,
 				83391B5D2D26F323005BF30E /* Meal-CoreDataHelpers.swift in Sources */,
+				83391BBA2D40ED20005BF30E /* ShoppingTripView.swift in Sources */,
 				83391B5E2D26F323005BF30E /* MealCategory-CoreDataHelpers.swift in Sources */,
 				83391B5F2D26F323005BF30E /* NewOrStaple.swift in Sources */,
 				83391B602D26F323005BF30E /* IngredientsRow.swift in Sources */,
@@ -330,6 +345,7 @@
 				83391B672D26F323005BF30E /* MealListView.swift in Sources */,
 				83391B682D26F323005BF30E /* ShoppingListView.swift in Sources */,
 				83391BAA2D3521B7005BF30E /* LocationItemsViewToolbar.swift in Sources */,
+				83391BB82D402ABC005BF30E /* GoShoppingRow.swift in Sources */,
 				83391B692D26F323005BF30E /* TurtleShopApp.swift in Sources */,
 				83391B972D33E5DB005BF30E /* Bundle-Decodable.swift in Sources */,
 				83391BA72D351D36005BF30E /* ShoppingListToolBar.swift in Sources */,

@@ -48,7 +48,16 @@ extension Item {
             return Color.red.opacity(0.2)
         }
     }
-    
+
+    var goShoppingBackgroundColor: Color {
+        switch purchased {
+        case true:
+            return Color.green.opacity(0.2)
+        case false:
+            return Color(UIColor.secondarySystemGroupedBackground)
+        }
+    }
+
     static var example: Item {
         let controller = DataController(inMemory: true)
         let viewContext = controller.container.viewContext

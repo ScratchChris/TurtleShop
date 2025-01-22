@@ -24,6 +24,8 @@ struct MealListView: View {
                         HStack {
                             Text(mealCategory.mealCategoryName)
                             Spacer()
+//                            Stepper("\(mealCategory.numberOfMeals) meals", value: mealCategory.$numberOfMeals)
+                            Spacer()
                             Text("\(mealCategory.categorySelectedMeals.count)/\(mealCategory.numberOfMeals)")
                         }
                     }
@@ -53,9 +55,15 @@ struct MealListView: View {
                             }
                             .onLongPressGesture {
                                 meal.selected = false
-                                for item in meal.mealIngredients {
-                                    item.onShoppingList = false
-                                }
+                                    for item in meal.mealIngredients {
+                                        if item.itemNewOrStaple == .staple {
+
+                                        } else if item.itemSelectedMeals.count > 0 {
+
+                                        } else {
+                                            item.onShoppingList = false
+                                        }
+                                    }
                             }
                     }
                 }

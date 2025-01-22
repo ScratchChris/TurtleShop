@@ -1,18 +1,24 @@
 //
-//  ShoppingTripRopw.swift
+//  ShoppingTripRow.swift
 //  TurtleShop
 //
 //  Created by Chris Turner on 22/01/2025.
 //
 
+import CoreData
 import SwiftUI
 
-struct ShoppingTripRopw: View {
+struct ShoppingTripRow: View {
+    @EnvironmentObject var dataController: DataController
+    @ObservedObject var shoppingTrip: ShoppingTrip
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationLink(destination: ShoppingTripView(shoppingTrip: shoppingTrip)) {
+            Text(shoppingTrip.shoppingTripDate.formatted())
+        }
     }
 }
 
 #Preview {
-    ShoppingTripRopw()
+    ShoppingTripRow(shoppingTrip: ShoppingTrip.example)
 }
