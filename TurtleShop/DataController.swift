@@ -158,6 +158,7 @@ class DataController: ObservableObject {
         item.name = ""
         item.itemStatus = .unselected
         item.purchased = false
+        item.shoppingListOrder = 0
 
         if let selectedLocation = selectedLocation {
             item.location = selectedLocation

@@ -11,6 +11,11 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             List {
+                Section("Items") {
+                    NavigationLink(destination: ManualItemOrderView()) {
+                        Text("Manually order the items")
+                    }
+                }
                 Section("Awards") {
                     NavigationLink(destination: AwardsView()) {
                         Text("Awards")

@@ -23,7 +23,12 @@ extension Item {
         get { location ?? Location() }
         set { location = newValue }
     }
-    
+
+    var itemShoppingListOrder: Int64 {
+        get { shoppingListOrder ?? 0 }
+        set { shoppingListOrder = newValue }
+    }
+
     var itemMeals: [Meal] {
         let result = meals?.allObjects as? [Meal] ?? []
         return result.sorted()

@@ -43,6 +43,7 @@
 		83391BB82D402ABC005BF30E /* GoShoppingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391BB72D402ABC005BF30E /* GoShoppingRow.swift */; };
 		83391BBA2D40ED20005BF30E /* ShoppingTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391BB92D40ED20005BF30E /* ShoppingTripView.swift */; };
 		83391BBC2D40F318005BF30E /* ShoppingTripRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391BBB2D40F318005BF30E /* ShoppingTripRow.swift */; };
+		83391BBE2D425A8E005BF30E /* ManualItemOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83391BBD2D425A8E005BF30E /* ManualItemOrderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		83391BB72D402ABC005BF30E /* GoShoppingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoShoppingRow.swift; sourceTree = "<group>"; };
 		83391BB92D40ED20005BF30E /* ShoppingTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTripView.swift; sourceTree = "<group>"; };
 		83391BBB2D40F318005BF30E /* ShoppingTripRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTripRow.swift; sourceTree = "<group>"; };
+		83391BBD2D425A8E005BF30E /* ManualItemOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualItemOrderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 				83391BB52D402957005BF30E /* ShoppingTrips.swift */,
 				83391BBB2D40F318005BF30E /* ShoppingTripRow.swift */,
 				83391BB92D40ED20005BF30E /* ShoppingTripView.swift */,
+				83391BBD2D425A8E005BF30E /* ManualItemOrderView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				83391B672D26F323005BF30E /* MealListView.swift in Sources */,
 				83391B682D26F323005BF30E /* ShoppingListView.swift in Sources */,
 				83391BAA2D3521B7005BF30E /* LocationItemsViewToolbar.swift in Sources */,
+				83391BBE2D425A8E005BF30E /* ManualItemOrderView.swift in Sources */,
 				83391BB82D402ABC005BF30E /* GoShoppingRow.swift in Sources */,
 				83391B692D26F323005BF30E /* TurtleShopApp.swift in Sources */,
 				83391B972D33E5DB005BF30E /* Bundle-Decodable.swift in Sources */,
